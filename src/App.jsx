@@ -4,6 +4,7 @@ import RootLayout from './layout/RootLayout'
 import Home from './pages/Home'
 import Registration from './pages/Registration'
 import Login from './pages/Login'
+import Messages from './pages/Messages'
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
           <Route index element={<Home />} />
           <Route path='registration' element={<Registration />} />
           <Route path='login' element={<Login />} />
+          <Route path='messages' element={<Messages />} />
         </Route>
       </Route>
     )

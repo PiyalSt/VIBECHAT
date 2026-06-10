@@ -4,6 +4,9 @@ import { FiSearch } from "react-icons/fi";
 import { Button, IconButton } from '@mui/material';
 import { BsThreeDotsVertical } from "react-icons/bs";
 import ListItems from '../components/ListItems';
+import Search from '../components/Search';
+import ProfileCard from '../components/ProfileCard';
+import userImg01 from '../assets/user-01.png'
 
 
 const Home = () => {
@@ -16,13 +19,8 @@ const Home = () => {
               <Navbar />
             </div>
             <div className='w-full'>
-              <div className=' w-full flex justify-center py-8'>
-                <div className='w-120 flex justify-between items-center gap-4 py-3 px-5 border-2 shadow-xl rounded-2xl'>
-                  <input className='w-full outline-none font-poppins font-medium text-black/60' type="text" placeholder='Search' />
-                  <IconButton sx={{color: 'gray'}}>
-                    <FiSearch className='text-2xl text-gray-800' />
-                  </IconButton>
-                </div>
+              <div className='mx-12'>
+                <Search />
               </div>
 
               <div className=' py-10 px-8 mx-6 shadow'>
@@ -75,7 +73,10 @@ const Home = () => {
 
           <div className='w-6/12'>
             <div className='w-full '>
-              <ListItems />
+              <ListItems listText={'User List'} />
+              <div className='mx-14'>
+                <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'Join'} />
+              </div>
             </div>
           </div>
         </div>

@@ -4,6 +4,7 @@ import { FaHome } from "react-icons/fa";
 import { IoIosNotifications, IoMdLogOut } from "react-icons/io";
 import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
 import { AiFillSetting } from 'react-icons/ai';
+import { NavLink } from 'react-router';
 
 const Navbar = () => {
   return (
@@ -16,19 +17,23 @@ const Navbar = () => {
 
           <div className='flex flex-col gap-4'>
 
-            <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-              hover:bg-white hover:shadow-lg hover:translate-x-2 focus-within:translate-x-1'>
+            <NavLink to={'/'}>
+              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
+                hover:bg-white hover:shadow-lg hover:translate-x-2 focus-within:translate-x-1'>
 
-              <FaHome className='text-white text-4xl transition-all duration-300 
-                group-hover:text-primary group-hover:scale-110 group-hover:rotate-3' />
-            </li>
+                <FaHome className='text-white text-4xl transition-all duration-300 
+                  group-hover:text-primary group-hover:scale-110 group-hover:rotate-3' />
+              </li>
+            </NavLink>
 
-            <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-              hover:bg-white hover:shadow-lg hover:translate-x-2'>
+            <NavLink to={'/messages'}>
+              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
+                hover:bg-white hover:shadow-lg hover:translate-x-2'>
 
-              <IoChatbubbleEllipsesSharp className='text-white text-4xl transition-all duration-300 
-                group-hover:text-primary group-hover:scale-110 group-hover:-rotate-3' />
-            </li>
+                <IoChatbubbleEllipsesSharp className='text-white text-4xl transition-all duration-300 
+                  group-hover:text-primary group-hover:scale-110 group-hover:-rotate-3' />
+              </li>
+            </NavLink>
 
             <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
               hover:bg-white hover:shadow-lg hover:translate-x-2'>

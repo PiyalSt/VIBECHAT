@@ -4,7 +4,7 @@ const ProfileCard = ({profileImg, profileAlt, userName, userMessage, btnText}) =
   return (
     <>
         <div>
-            <div className='mt-6 border-b-2 border-gray-400'>
+            <div className='mt-2 border-b-2 border-gray-400'>
                 <div className='flex justify-between items-center mb-4'>
                     <div className='flex items-center gap-4'>
                         <img src={profileImg} alt={profileAlt} />
