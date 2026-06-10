@@ -40,7 +40,7 @@ const Messages = () => {
             </div>
           </div>
 
-          <div className='w-6/12 border-l-2 border-gray-300'>
+          <div className='w-6/12 border-l-2 border-gray-300 '>
             <div className='flex flex-col justify-between h-full'>
               <div className='mx-12 pt-8 pb-4 border-b-2 border-gray-300'>
                 <div className='flex justify-between items-center'>
@@ -57,9 +57,10 @@ const Messages = () => {
                 </div>
               </div>
 
-              <div className='mx-12 w-[85%] h-full bg-gray-500'>
-                <div>
-                  <ChatText ChatText='Hello' />
+              <div className='mx-12 w-[85%] h-full'>
+                <div className='p-6'>
+                  <ChatText chatText='Hello' />
+                  <ChatText chatText='lorem flsdjflsdjf lds flkjf df' />
                 </div>
               </div>
 
@@ -77,9 +78,9 @@ const Messages = () => {
                     </div>
                   </div>
                   <div>
-                    <IconButton>
+                    <IconButton sx={{color: '#00899b'}}>
                       <li className='list-none'>
-                        <BiSend className='text-4xl' />
+                        <BiSend className='text-4xl text-primary' />
                       </li>
                     </IconButton>
                   </div>

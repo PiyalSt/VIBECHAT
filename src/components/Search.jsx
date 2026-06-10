@@ -7,7 +7,7 @@ const Search = () => {
     <>
       <div>
         <div className=" w-full flex justify-center py-8">
-          <div className="w-full flex justify-between items-center gap-4 py-3 px-5 border-2 shadow-xl rounded-2xl">
+          <div className="w-full flex justify-between items-center gap-4 py-3 px-5 border-2 border-gray-300 shadow-xl rounded-2xl">
             <input
               className="w-full outline-none font-poppins font-medium text-black/60"
               type="text"

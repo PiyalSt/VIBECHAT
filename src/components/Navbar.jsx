@@ -35,19 +35,23 @@ const Navbar = () => {
               </li>
             </NavLink>
 
-            <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-              hover:bg-white hover:shadow-lg hover:translate-x-2'>
+            <NavLink to={'/notification'}>
+              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
+                hover:bg-white hover:shadow-lg hover:translate-x-2'>
 
-              <IoIosNotifications className='text-white text-4xl transition-all duration-300 
-                group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
-            </li>
+                <IoIosNotifications className='text-white text-4xl transition-all duration-300 
+                  group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
+              </li>
+            </NavLink>
             
-            <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-              hover:bg-white hover:shadow-lg hover:translate-x-2'>
+            <NavLink to={'/settings'}>
+              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
+                hover:bg-white hover:shadow-lg hover:translate-x-2'>
 
-              <AiFillSetting className='text-white text-4xl transition-all duration-300 
-                group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
-            </li>
+                <AiFillSetting className='text-white text-4xl transition-all duration-300 
+                  group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
+              </li>
+            </NavLink>
 
           </div>
 

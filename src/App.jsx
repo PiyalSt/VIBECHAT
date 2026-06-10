@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import Registration from './pages/Registration'
 import Login from './pages/Login'
 import Messages from './pages/Messages'
+import Notification from './pages/Notification'
+import Settings from './pages/Settings'
 
 const App = () => {
 
@@ -16,6 +18,8 @@ const App = () => {
           <Route path='registration' element={<Registration />} />
           <Route path='login' element={<Login />} />
           <Route path='messages' element={<Messages />} />
+          <Route path='notification' element={<Notification />} />
+          <Route path='settings' element={<Settings />} />
         </Route>
       </Route>
     )
