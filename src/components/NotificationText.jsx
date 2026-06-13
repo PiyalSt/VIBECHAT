@@ -4,12 +4,12 @@ import { IoNotificationsSharp } from "react-icons/io5";
 const NotificationText = ({notiText}) => {
   return (
     <>
-        <div className='flex items-center gap-4 border-b-2 border-gray-300'>
-            <div className='mb-4'>
-                <IoNotificationsSharp className="text-3xl text-black/85" />
+        <div className='flex items-center gap-4 p-4 border-b border-secondText/50 hover:bg-secondText/10 rounded-sm cursor-pointer group'>
+            <div>
+                <IoNotificationsSharp className="text-3xl text-secondText/80" />
             </div>
-            <div className='mb-4'>
-              <p className='font-poppins font-medium text-base text-black/85'>{notiText}</p>
+            <div>
+              <p className='font-nunito font-medium text-base text-secondText/80 group-hover:text-secondText'>{notiText}</p>
             </div>
         </div> 
     </>

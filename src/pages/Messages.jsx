@@ -1,86 +1,112 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import Search from '../components/Search'
-import ListItems from '../components/ListItems'
-import ProfileCard from '../components/ProfileCard'
-import userImg01 from '../assets/user-01.png'
-import userImg02 from '../assets/user-02.png'
+import React from "react";
+import Navbar from "../components/Navbar";
+import Search from "../components/Search";
+import ProfileCard from "../components/ProfileCard";
+import userImg01 from "../assets/user-01.png";
+import userImg02 from "../assets/user-02.png";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { IconButton } from '@mui/material'
-import { BiHappy, BiSend } from 'react-icons/bi'
-import { CiCamera } from 'react-icons/ci'
-import ChatText from '../components/ChatText'
-
+import { IconButton } from "@mui/material";
+import { BiHappy, BiSend } from "react-icons/bi";
+import { CiCamera } from "react-icons/ci";
+import ChatText from "../components/ChatText";
+import ListContainer from "../components/ListContainer";
 
 const Messages = () => {
   return (
     <>
       <section>
-        <div className='flex'>
-          <div className='w-6/12'>
-            <div className='flex'>
+        <div className="flex">
+          <div className="w-6/12">
+            <div className="flex">
               <div>
                 <Navbar />
               </div>
-              <div className='w-full h-screen'>
-                <div className='mx-12'>
+              <div className="w-full h-screen bg-darkGray overflow-y-scroll border-l border-secondText/50">
+                <div className="m-6">
                   <Search />
                 </div>
-                <div className='w-full'>
-                  <ListItems listText={'Friends'} />
 
-                  <div className='mx-14'>
-                    <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'View'} />
-                    <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'View'} />
-                    <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'View'} />
-                    <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'View'} />
+                <div className="w-full">
+                  <div className="m-6">
+                    <ListContainer listName={"Friend List"} />
+                  </div>
+
+                  <div className="mx-6">
+                    <ProfileCard />
+                    <ProfileCard />
+                    <ProfileCard />
+                    <ProfileCard />
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className='w-6/12 border-l-2 border-gray-300 '>
-            <div className='flex flex-col justify-between h-full'>
-              <div className='mx-12 pt-8 pb-4 border-b-2 border-gray-300'>
-                <div className='flex justify-between items-center'>
-                  <div className='flex items-center gap-4'>
-                    <img src={userImg02} alt="userImg02" />
+          <div className="w-6/12 border-l border-secondText/50 bg-darkGray">
+            <div className="flex flex-col justify-between h-full">
+
+              {/* message profile part */}
+              <div className="mx-6 pt-6 pb-4 border-b border-secondText/50">
+                <div className="flex justify-between items-center">
+                  <div className="flex items-center gap-2">
+                    <img className="w-16" src={userImg02} alt="userImg02" />
                     <div>
-                      <h2 className='font-poppins font-semibold text-xl text-black'>Swathi</h2>
-                      <p className='font-poppins font-medium text-sm text-black'>Online</p>
+                      <h2 className="font-nunito font-medium text-xl text-secondText">
+                        Swathi
+                      </h2>
+                      <p className="font-nunito font-medium text-sm text-green-400/70">
+                        Online
+                      </p>
                     </div>
                   </div>
-                  <IconButton>
-                    <BsThreeDotsVertical className='text-2xl' />
+                  <IconButton sx={{color: 'white'}}>
+                    <BsThreeDotsVertical className="text-2xl text-secondText/50" />
                   </IconButton>
                 </div>
               </div>
 
-              <div className='mx-12 w-[85%] h-full'>
-                <div className='p-6'>
-                  <ChatText chatText='Hello' />
-                  <ChatText chatText='lorem flsdjflsdjf lds flkjf df' />
+              {/*  */}
+              <div className="mx-6 h-120 overflow-y-scroll">
+                <div className="py-4">
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
+                  <ChatText chatText="Hello" />
+                  <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
                 </div>
               </div>
 
-              <div className='border-t-2 border-gray-300'>
-                <div className='flex justify-between items-center gap-6 mx-12 pb-10 pt-6'>
-                  <div className='w-full flex justify-between gap-4 border-2 py-2 px-6 rounded-full border-gray-300'>
-                    <input className='w-full outline-none font-poppins font-medium text-base' type="text" placeholder='write here' />
-                    <div className='flex items-center gap-2'>
-                      <IconButton>
-                        <BiHappy className='text-2xl text-black/90' />
+              {/* messaging send part || message input part */}
+              <div className="mx-6 border-t border-secondText/50">
+                <div className="flex justify-between items-center gap-2 pb-8 pt-6">
+
+                  <div className="w-full flex justify-between gap-4 border border-secondText/50 py-2 pl-6 pr-4 rounded-full">
+                    <input
+                      className="w-full outline-none font-nunito font-medium text-base text-secondText"
+                      type="text"
+                      placeholder="write here..."
+                    />
+                    <div className="flex items-center">
+                      <IconButton sx={{color: 'white'}}>
+                        <BiHappy className="text-2xl text-secondText/90" />
                       </IconButton>
-                      <IconButton>
-                        <CiCamera className='text-2xl text-black/90' />
+                      <IconButton sx={{color: 'white'}}>
+                        <CiCamera className="text-2xl text-secondText/90" />
                       </IconButton>
                     </div>
                   </div>
+
                   <div>
-                    <IconButton sx={{color: '#00899b'}}>
-                      <li className='list-none'>
-                        <BiSend className='text-4xl text-primary' />
+                    <IconButton sx={{ color: "#00899b" }}>
+                      <li className="list-none">
+                        <BiSend className="text-4xl text-primary" />
                       </li>
                     </IconButton>
                   </div>
@@ -91,7 +117,7 @@ const Messages = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Messages
+export default Messages;

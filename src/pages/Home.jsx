@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { FiSearch } from "react-icons/fi";
 import { Button, IconButton } from '@mui/material';
 import { BsThreeDotsVertical } from "react-icons/bs";
-import ListItems from '../components/ListItems';
 import Search from '../components/Search';
 import ProfileCard from '../components/ProfileCard';
-import userImg01 from '../assets/user-01.png'
+import assets from '../assets/assets';
+import ListContainer from '../components/ListContainer';
 
 
 const Home = () => {
+
+  const [list, setList] = useState('Group List');
+  
+
   return (
     <>
       <section id='home-page'>
@@ -18,50 +22,52 @@ const Home = () => {
             <div>
               <Navbar />
             </div>
-            <div className='w-full'>
-              <div className='mx-12'>
-                <Search />
-              </div>
+            <div className='w-full border-l border-secondText/50 bg-darkGray'>
 
-              <div className=' py-10 px-8 mx-6 shadow'>
+              <div className='mx-6'>
+                <div className='my-6'>
+                  <Search />
+                </div>
+
                 <div>
-                  <div className='border-b-2 border-gray-300'>
-                    <div className='flex items-center justify-between mb-4'>
-                      <h2 className='font-nunito font-bold text-2xl text-black/80'>Items List</h2>
-                      <IconButton>
-                        <BsThreeDotsVertical className='text-2xl text-black/80' />
-                      </IconButton>
-                    </div>
-                  </div>
+                  <ListContainer listName={'List Items'} />
+                </div>
 
-                  <div className='my-10'>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray'}}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                <div className="w-full max-h-134 flex-1 overflow-y-scroll hide-scrollbar relative">
+                  <div className='flex flex-col gap-2 mt-10 bg-slate-700/10 p-6 rounded-lg'>
+                    <Button onClick={()=> setList('Group List')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         Group List
                       </li>
                     </Button>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray' }}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                    <Button onClick={()=> setList('Friends List')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         Friends List
                       </li>
                     </Button>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray'}}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                    <Button onClick={()=> setList('User List')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         User List
                       </li>
                     </Button>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray'}}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                    <Button onClick={()=> setList('Friend  Request')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         Friend  Request
                       </li>
                     </Button>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray'}}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                    <Button onClick={()=> setList('My Groups')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         My Groups
                       </li>
                     </Button>
-                    <Button sx={{width: '100%', padding: '16px 0', color: '#000', borderBottom: '2px solid gray'}}>
-                      <li className='font-poppins font-semibold text-lg list-none'>
+                    <Button onClick={()=> setList('Blocked Users')}
+                     sx={{width: '100%', padding: '16px 0', color: '#C8BCF6'}}>
+                      <li className='font-nunito font-medium text-lg list-none'>
                         Blocked Users
                       </li>
                     </Button>
@@ -71,11 +77,13 @@ const Home = () => {
             </div>
           </div>
 
-          <div className='w-6/12'>
-            <div className='w-full '>
-              <ListItems listText={'User List'} />
-              <div className='mx-14'>
-                <ProfileCard profileImg={userImg01} profileAlt={'userImg01'} userName={'Friends Reunion'} userMessage={'Hi Guys, Wassup!'} btnText={'Join'} />
+          <div className='w-6/12 bg-darkGray border-l border-secondText/50'>
+            <div className='w-full'>
+              <div className='m-6'>
+                <ListContainer listName={list} />
+              </div>
+              <div className='mx-6'>
+                <ProfileCard />
               </div>
             </div>
           </div>

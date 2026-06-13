@@ -13,4 +13,13 @@
     /* color */
     --color-primary: #00899b;
     --color-text-primary: #00899b;
+
+    /* updates */
+    --color-darkGray: #09090A;
+    --color-mainText: #EFEFEF;
+    --color-secondText: #C8BCF6;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

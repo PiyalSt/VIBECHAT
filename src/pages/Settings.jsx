@@ -13,64 +13,53 @@ import { NavLink } from 'react-router';
 const Settings = () => {
   return (
     <>
-      <section>
-        <div className='flex w-full'>
+      <section id='settings'>
+        <div className='flex w-full bg-darkGray'>
           <div>
             <Navbar />
           </div>
-          <div className='w-full mx-12'>
-            <div className='mx-4'>
+
+          <div className='w-full border-l border-secondText/50'>
+            {/* Searchbar part */}
+            <div className='m-6'>
               <Search />
             </div>
-            <div className='mx-4 flex'>
-              <div className='relative w-6/12 border-r-2 border-gray-300'>
-                <h2 className='font-poppins font-semibold text-xl text-black/90 my-4'>Profile Settings</h2>
-                <div className='flex items-center gap-4 mt-10'>
+
+            <div className='mx-6 flex flex-col justify-between'>
+
+              <div className='flex'>
+                <div className='w-6/12 border-r-2 border-gray-300 relative'>
+
+                <h2 className='font-nunito font-medium text-xl text-secondText my-2'>Profile Settings</h2>
+
+                <div className='flex items-center gap-4 mt-6'>
                   <img src={userImg02} alt="userImg02" />
                   <div>
-                    <h2 className='font-poppins font-semibold text-2xl text-black/90'>A B M Shawon Islam</h2>
-                    <p className='font-poppins font-medium text-xl text-black/70'>Stay home stay safe</p>
+                    <h2 className='font-nunito font-medium text-xl text-secondText'>A B M Shawon Islam</h2>
+                    <p className='font-poppins font-medium text-base text-secondText/50'>Stay home stay safe</p>
                   </div>
                 </div>
 
-                <div className='mt-20 ml-12 flex flex-col gap-6'>
-                  <div className='flex items-center gap-4'>
-                    <div>
-                      <FaUserEdit className='text-2xl text-black/90' />
-                    </div>
-                    <div>
-                      <p className='font-poppins font-normal text-xl text-black/90'>Edit Profile Name</p>
-                    </div>
+                <div className='mx-6 mt-8 ml-12 flex flex-col gap-4'>
+                  <div className='flex items-center gap-4 py-2 px-4 cursor-pointer hover:bg-secondText/10 rounded-sm'>
+                      <FaUserEdit className='text-xl text-secondText/90' />
+                      <p className='font-poppins font-normal text-base text-secondText/90'>Edit Profile Name</p>
                   </div>
-                  <div className='flex items-center gap-4'>
-                    <div>
-                      <FaRocketchat className='text-2xl text-black/90' />
-                    </div>
-                    <div>
-                      <p className='font-poppins font-normal text-xl text-black/90'>Edit Profile Status Info</p>
-                    </div>
+                  <div className='flex items-center gap-4 py-2 px-4 cursor-pointer hover:bg-secondText/10 rounded-sm'>
+                      <FaRocketchat className='text-xl text-secondText/90' />
+                      <p className='font-poppins font-normal text-base text-secondText/90'>Edit Profile Status Info</p>
                   </div>
-                  <div className='flex items-center gap-4'>
-                    <div>
-                      <MdAddPhotoAlternate className='text-2xl text-black/90' />
-                    </div>
-                    <div>
-                      <p className='font-poppins font-normal text-xl text-black/90'>Edit Profile Photo</p>
-                    </div>
+                  <div className='flex items-center gap-4 py-2 px-4 cursor-pointer hover:bg-secondText/10 rounded-sm'>
+                      <MdAddPhotoAlternate className='text-xl text-secondText/90' />
+                      <p className='font-poppins font-normal text-base text-secondText/90'>Edit Profile Photo</p>
                   </div>
-                  <div className='flex items-center gap-4'>
-                    <div>
-                      <MdHelpOutline className='text-2xl text-black/90' />
-                    </div>
-                    <div>
-                      <p className='font-poppins font-normal text-xl text-black/90'>Help</p>
-                    </div>
+                  <div className='flex items-center gap-4 py-2 px-4 cursor-pointer hover:bg-secondText/10 rounded-sm'>
+                      <MdHelpOutline className='text-xl text-secondText/90' />
+                      <p className='font-poppins font-normal text-base text-secondText/90'>Help</p>
                   </div>
-                </div>
-                <div className='absolute -bottom-36 left-8'>
-                  <h2 className='font-nunito font-medium text-xl text-black/40'>Chat application with PiyalSt</h2>
                 </div>
               </div>
+
               <div className='relative w-6/12 ml-8'>
                 <h2 className='font-poppins font-semibold text-xl text-black/90 my-4'>Profile Settings</h2>
 
@@ -114,7 +103,16 @@ const Settings = () => {
                   <h2 className='font-nunito font-medium text-xl text-black/40'>Chat application with PiyalSt</h2>
                 </div>
               </div>
+              </div>
+
+              <div>
+                <div className='flex justify-center items-center bg-amber-200 w-full'>
+                  <h2 className='font-nunito font-medium text-xl text-secondText/40'>Chat application with PiyalSt</h2>
+                </div>
+              </div>
+
             </div>
+
           </div>
         </div>
       </section>

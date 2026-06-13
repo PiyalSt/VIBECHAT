@@ -1,74 +1,81 @@
-import React from 'react'
-import profileImg from '../assets/profile.png'
+import React from "react";
 import { FaHome } from "react-icons/fa";
 import { IoIosNotifications, IoMdLogOut } from "react-icons/io";
-import { IoChatbubbleEllipsesSharp } from 'react-icons/io5';
-import { AiFillSetting } from 'react-icons/ai';
-import { NavLink } from 'react-router';
+import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
+import { AiFillSetting } from "react-icons/ai";
+import { CiSettings } from "react-icons/ci";
+import { Link, NavLink } from "react-router";
+import assets from "../assets/assets";
 
 const Navbar = () => {
   return (
     <>
-      <section id='navbar-components'>
-        <div className='w-28 h-screen flex flex-col items-center justify-between py-8 bg-primary'>
-          <div className='w-20 h-20 bg-gray-950 rounded-full flex items-center justify-center cursor-pointer'>
-            <img className='w-full h-full object-cover p-3' src={profileImg} alt="profileImg" />
+      <section id="navbar-components">
+        <div className="px-6 h-screen flex flex-col items-center justify-between py-8 bg-darkGray">
+          <div className="w-14 h-14 flex items-center justify-center cursor-pointer">
+            <Link to={"/"}>
+              <img
+                className="w-full h-full object-cover"
+                src={assets.profile}
+                alt="profileImg"
+              />
+            </Link>
           </div>
 
-          <div className='flex flex-col gap-4'>
-
-            <NavLink to={'/'}>
-              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-                hover:bg-white hover:shadow-lg hover:translate-x-2 focus-within:translate-x-1'>
-
-                <FaHome className='text-white text-4xl transition-all duration-300 
-                  group-hover:text-primary group-hover:scale-110 group-hover:rotate-3' />
+          <div className="flex flex-col gap-4">
+            <NavLink to={"/"}>
+              <li className="list-none relative overflow-hidden cursor-pointer">
+                <div className="p-4 rounded-sm hover:bg-[#1F1F22]">
+                  <img src={assets.homeIcons} alt="homeIcons" />
+                </div>
               </li>
             </NavLink>
 
-            <NavLink to={'/messages'}>
-              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-                hover:bg-white hover:shadow-lg hover:translate-x-2'>
-
-                <IoChatbubbleEllipsesSharp className='text-white text-4xl transition-all duration-300 
-                  group-hover:text-primary group-hover:scale-110 group-hover:-rotate-3' />
+            <NavLink to={"/messages"}>
+              <li className="list-none relative overflow-hidden cursor-pointer">
+                <div className="p-4 rounded-sm hover:bg-[#1F1F22]">
+                  <img src={assets.ListIcons} alt="homeIcons" />
+                </div>
               </li>
             </NavLink>
 
-            <NavLink to={'/notification'}>
-              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-                hover:bg-white hover:shadow-lg hover:translate-x-2'>
-
-                <IoIosNotifications className='text-white text-4xl transition-all duration-300 
-                  group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
-              </li>
-            </NavLink>
-            
-            <NavLink to={'/settings'}>
-              <li className='group list-none relative overflow-hidden cursor-pointer rounded-l-full py-3 pl-4 pr-10 transition-all duration-300 ease-out
-                hover:bg-white hover:shadow-lg hover:translate-x-2'>
-
-                <AiFillSetting className='text-white text-4xl transition-all duration-300 
-                  group-hover:text-primary group-hover:scale-110 group-hover:animate-pulse' />
+            <NavLink to={"/notification"}>
+              <li className="list-none relative overflow-hidden cursor-pointer">
+                <div className="p-4 rounded-sm hover:bg-[#1F1F22]">
+                  <img src={assets.NotificationIcons} alt="homeIcons" />
+                </div>
               </li>
             </NavLink>
 
+            <NavLink to={"/settings"}>
+              <li className="list-none relative overflow-hidden cursor-pointer">
+                <div className="p-4 rounded-sm hover:bg-[#1F1F22]">
+                  <CiSettings className="text-[#C8BCF6] text-2xl" />
+                </div>
+              </li>
+            </NavLink>
           </div>
 
           <div>
-            <li className='list-none cursor-pointer relative overflow-hidden hover:overflow-visible duration-300'>
-              <IoMdLogOut className="text-4xl text-white" />
+            <li className="list-none relative cursor-pointer">
+              <div className="group p-4 rounded-sm hover:bg-[#1F1F22] w-fit">
+                <img src={assets.LogoutIcons} alt="homeIcons" />
 
-              <span className='absolute -top-11 -left-6 bg-white text-primary py-2 px-4 rounded-full font-poppins font-medium '>
-                Logout
-              </span>
-
+                <span
+                  className="absolute -top-8 left-1 text-[#C8BCF6]
+                  opacity-0 invisible
+                  group-hover:opacity-100 group-hover:visible
+                  transition-all duration-500"
+                >
+                  Logout
+                </span>
+              </div>
             </li>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

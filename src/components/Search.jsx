@@ -6,15 +6,15 @@ const Search = () => {
   return (
     <>
       <div>
-        <div className=" w-full flex justify-center py-8">
-          <div className="w-full flex justify-between items-center gap-4 py-3 px-5 border-2 border-gray-300 shadow-xl rounded-2xl">
+        <div className=" w-full flex justify-center">
+          <div className="w-full flex justify-between items-center gap-4 py-2 px-4 border-2 border-secondText/50 shadow-lg shadow-secondText/10 rounded-2xl">
             <input
-              className="w-full outline-none font-poppins font-medium text-black/60"
+              className="w-full border-none outline-none font-nunito font-medium text-secondText/90"
               type="text"
               placeholder="Search"
             />
-            <IconButton sx={{ color: "gray" }}>
-              <FiSearch className="text-2xl text-gray-800" />
+            <IconButton sx={{ color: "white" }}>
+              <FiSearch className="text-2xl text-secondText" />
             </IconButton>
           </div>
         </div>
