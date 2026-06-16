@@ -12,7 +12,7 @@ const ListContainer = ({ listName, listItem }) => {
             <h2 className="font-nunito font-medium text-xl text-secondText/80 uppercase">
               {listName}
             </h2>
-            <IconButton sx={{ color: "white" }}>
+            <IconButton sx={{ color: "#C8BCF6" }}>
               <BsThreeDotsVertical className="text-2xl text-secondText/80" />
             </IconButton>
           </div>

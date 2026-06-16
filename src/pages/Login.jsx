@@ -3,14 +3,29 @@ import loginImg from "../assets/login.jpg";
 import { Button, TextField } from "@mui/material";
 import googleImg from "../assets/google.png";
 import { Link } from "react-router";
+import { toast, ToastContainer } from "react-toastify";
 
 const Login = () => {
 
   const [email, setEmail] = useState('')
+  const [emailError, setEmailError] = useState(false)
   const [password, setPassword] = useState('')
+  const [passwordError, setPasswordError] = useState(false)
 
-  console.log(email);
-  console.log(password);
+  const loginValidation = () => {
+    if(!email) {
+      toast.error("Please enter email!")
+      setEmailError(true)
+      return;
+    }
+    if(!password) {
+      toast.error("Please enter password!")
+      setPasswordError(true)
+      return;
+    }
+
+    toast.success('Login Success')
+  }
   
 
   return (
@@ -42,8 +57,13 @@ const Login = () => {
                     type="email"
                     variant="standard"
                     label="Email Address"
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e)=> {
+                      setEmail(e.target.value)
+                      setEmailError(false)
+                    }}
                     value={email}
+                    error={emailError}
+                    helperText={emailError ? 'Please enter your email' : ''}
                   ></TextField>
                 </div>
                 <div>
@@ -52,17 +72,27 @@ const Login = () => {
                     type="password"
                     variant="standard"
                     label="Password"
-                    onChange={(e)=>setPassword(e.target.value)}
+                    onChange={(e)=> {
+                      setPassword(e.target.value)
+                      setPasswordError(false)
+                    }}
                     value={password}
+                    error={passwordError}
+                    helperText={passwordError ? 'Please enter your password' : ''}
                   ></TextField>
                 </div>
               </div>
               {/* TEXT FIELD END */}
 
+              <div>
+                <ToastContainer position="top-left" />
+              </div>
+
 
               <div className="w-full">
                 <div className="mb-8">
                   <Button
+                    onClick={loginValidation}
                     sx={{
                       width: "90%",
                       padding: "10px 64px",

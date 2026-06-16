@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import Search from "../components/Search";
 import ProfileCard from "../components/ProfileCard";
@@ -12,6 +12,17 @@ import ChatText from "../components/ChatText";
 import ListContainer from "../components/ListContainer";
 
 const Messages = () => {
+
+  const [liveText, setLiveText] = useState()
+
+  const trackText = (e) => {
+    setLiveText(e.target.value)
+  }
+
+  const handleSend = () => {
+    <ChatText chatText={liveText} />
+  }
+
   return (
     <>
       <section>
@@ -68,7 +79,6 @@ const Messages = () => {
               {/*  */}
               <div className="mx-6 h-120 overflow-y-scroll">
                 <div className="py-4">
-                  <ChatText chatText="Hello" />
                   <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
                   <ChatText chatText="Hello" />
                   <ChatText chatText="lorem flsdjflsdjf lds flkjf df" />
@@ -88,7 +98,8 @@ const Messages = () => {
                 <div className="flex justify-between items-center gap-2 pb-8 pt-6">
 
                   <div className="w-full flex justify-between gap-4 border border-secondText/50 py-2 pl-6 pr-4 rounded-full">
-                    <input
+                    <input 
+                      onChange={trackText}
                       className="w-full outline-none font-nunito font-medium text-base text-secondText"
                       type="text"
                       placeholder="write here..."
@@ -104,9 +115,9 @@ const Messages = () => {
                   </div>
 
                   <div>
-                    <IconButton sx={{ color: "#00899b" }}>
+                    <IconButton  sx={{ color: "#C8BCF6" }}>
                       <li className="list-none">
-                        <BiSend className="text-4xl text-primary" />
+                        <BiSend className="text-4xl text-secondText/60" />
                       </li>
                     </IconButton>
                   </div>

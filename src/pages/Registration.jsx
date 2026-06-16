@@ -1,9 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import registrationImg from "../assets/x.jpg";
-import { Button, TextField } from "@mui/material";
+import { Button, IconButton, TextField } from "@mui/material";
 import { Link } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
+import { PiEyeClosedThin, PiEyeThin } from "react-icons/pi";
 
 const Registration = () => {
+  const [email, setEmail] = useState();
+  const [emailError, setEmailError] = useState(false);
+  const [name, setName] = useState();
+  const [nameError, setNameError] = useState();
+  const [password, setPassword] = useState();
+  const [passwordError, setPasswordError] = useState();
+  const [confirmPassword, setConfirmPassword] = useState();
+  const [confirmPasswordError, setConfirmPasswordError] = useState();
+  const [showPassword, setShowPassword] = useState(true);
+  const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
+
+  const registrationValidation = () => {
+    if (!email) {
+      toast.error("Please enter email!");
+      setEmailError(true);
+      return;
+    }
+
+    if (!name) {
+      toast.error("Please enter name!");
+      setNameError(true);
+      return;
+    }
+
+    if (!password) {
+      toast.error("Please enter password!");
+      setPasswordError(true);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords don't match!");
+      setConfirmPasswordError(true);
+      return;
+    }
+
+    toast.success("Registration Successful!");
+  };
+
+  const handleShow = () => {
+    setShowPassword(!showPassword)
+  }
+
+  const handleShowConfirm = () => {
+    setShowPasswordConfirm(!showPasswordConfirm)
+  }
+
+  console.log(showPasswordConfirm);
+  
+
   return (
     <>
       <section id="registration">
@@ -15,43 +67,99 @@ const Registration = () => {
                   Get started with easily register
                 </h2>
                 <p className="font-nunito font-normal text-xl text-black/50">
-                  Free register <span className="text-text-primary/50">and</span>{" "}
-                  you can enjoy it
+                  Free register{" "}
+                  <span className="text-text-primary/80">and</span> you can
+                  enjoy it
                 </p>
               </div>
 
               <div className="w-full flex flex-col gap-4 my-12">
                 <div>
                   <TextField
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      setEmailError(false);
+                    }}
                     sx={{ width: "90%" }}
                     label="Email Address"
+                    error={emailError}
+                    helperText={emailError ? "Please enter your email" : ""}
                   ></TextField>
                 </div>
                 <div>
                   <TextField
+                    onChange={(e) => {
+                      setName(e.target.value);
+                      setNameError(false);
+                    }}
                     sx={{ width: "90%" }}
                     label="Full Name"
+                    error={nameError}
+                    helperText={nameError ? "Please enter your name" : ""}
                   ></TextField>
                 </div>
-                <div>
+                <div className="relative">
                   <TextField
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                      setPasswordError(false);
+                    }}
                     sx={{ width: "90%" }}
-                    type="password"
+                    type={showPassword ? "password" : "text"}
                     label="Password"
+                    error={passwordError}
+                    helperText={passwordError ? "Please enter your email" : ""}
                   ></TextField>
+                  {showPassword ? (
+                    <div className="absolute top-2 right-16">
+                      <IconButton onClick={handleShow}>
+                        <PiEyeClosedThin className="text-xl" />
+                      </IconButton>
+                    </div>
+                  ) : (
+                    <div className="absolute top-2 right-16">
+                      <IconButton onClick={handleShow}>
+                        <PiEyeThin className="text-xl" />
+                      </IconButton>
+                    </div>
+                  )}
                 </div>
-                <div>
+                <div className="relative flex gap-6">
                   <TextField
+                    onChange={(e) => {
+                      setConfirmPassword(e.target.value);
+                      setConfirmPasswordError(false);
+                    }}
                     sx={{ width: "90%" }}
                     type="password"
                     label="Confirm Password"
+                    error={confirmPasswordError}
+                    helperText={
+                      confirmPasswordError ? "Password don't match" : ""
+                    }
                   ></TextField>
+                  {showPasswordConfirm ? (
+                    <div className="absolute top-2 right-16 ">
+                      <IconButton onClick={handleShowConfirm}>
+                        <PiEyeClosedThin className="text-xl" />
+                      </IconButton>
+                    </div>
+                  ) : (
+                    <div className="absolute top-2 right-16">
+                      <IconButton onClick={handleShowConfirm}>
+                        <PiEyeThin className="text-xl" />
+                      </IconButton>
+                    </div>
+                  )}
                 </div>
               </div>
+
+              <ToastContainer position="top-left" />
 
               <div className="w-full">
                 <div className="mb-8">
                   <Button
+                    onClick={registrationValidation}
                     sx={{
                       width: "90%",
                       padding: "10px 64px",
@@ -68,7 +176,7 @@ const Registration = () => {
                 </div>
                 <p className="font-nunito font-medium text-sm text-center -ml-8">
                   Already have an account ?{" "}
-                  <Link to={'/login'}>
+                  <Link to={"/login"}>
                     <span className="text-text-primary cursor-pointer font-bold">
                       Sign In
                     </span>
@@ -79,7 +187,11 @@ const Registration = () => {
           </div>
 
           <div className="w-6/12 bg-blue-400">
-            <img className="w-full h-full object-cover" src={registrationImg} alt="" />
+            <img
+              className="w-full h-full object-cover"
+              src={registrationImg}
+              alt="registrationImg"
+            />
           </div>
         </div>
       </section>
