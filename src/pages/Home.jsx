@@ -7,6 +7,7 @@ import Search from '../components/Search';
 import ProfileCard from '../components/ProfileCard';
 import assets from '../assets/assets';
 import ListContainer from '../components/ListContainer';
+import UserList from '../listpages/UserList';
 
 
 const Home = () => {
@@ -83,7 +84,8 @@ const Home = () => {
                 <ListContainer listName={list} />
               </div>
               <div className='mx-6'>
-                <ProfileCard />
+                {/* <ProfileCard /> */}
+                <UserList />
               </div>
             </div>
           </div>

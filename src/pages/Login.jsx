@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import loginImg from "../assets/login.jpg";
 import { Button, TextField } from "@mui/material";
 import googleImg from "../assets/google.png";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast, ToastContainer } from "react-toastify";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 const Login = () => {
+
+  const auth = getAuth();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('')
   const [emailError, setEmailError] = useState(false)
   const [password, setPassword] = useState('')
   const [passwordError, setPasswordError] = useState(false)
+
 
   const loginValidation = () => {
     if(!email) {
@@ -23,8 +29,22 @@ const Login = () => {
       setPasswordError(true)
       return;
     }
+    
 
-    toast.success('Login Success')
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      toast.success('Login Success')
+
+      setInterval(()=> {
+        navigate('/home')
+      })
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      toast.error(errorCode)
+    });
   }
   
 

@@ -12,7 +12,7 @@ import profile_alison from './profile_alison.png'
 import profile_enrique from './profile_enrique.png'
 import profile_marco from './profile_marco.png'
 import profile_martin from './profile_martin.png'
-
+import avatar_icon from './avatar_icon.png'
 
 const assets = {
     user01,
@@ -21,7 +21,8 @@ const assets = {
     NotificationIcons,
     ListIcons,
     SettingIcons,
-    LogoutIcons
+    LogoutIcons,
+    avatar_icon
 }
 
 export default assets

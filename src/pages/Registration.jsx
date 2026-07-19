@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import registrationImg from "../assets/x.jpg";
 import { Button, IconButton, TextField } from "@mui/material";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import { PiEyeClosedThin, PiEyeThin } from "react-icons/pi";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getDatabase, ref, set, push } from "firebase/database";
 
 const Registration = () => {
+
+  const auth = getAuth();
+    const db = getDatabase();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState();
   const [emailError, setEmailError] = useState(false);
   const [name, setName] = useState();
@@ -42,7 +49,29 @@ const Registration = () => {
       return;
     }
 
-    toast.success("Registration Successful!");
+    
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential.user.uid);
+      
+      toast.success("Registration Successful!");
+
+      // SEND DATA FIREDATABASW
+      let userRef = ref(db, 'users/' + userCredential.user.uid)
+      set(userRef, {
+        username: name,
+        useremail: email,
+      });
+
+      setInterval(()=> {
+        navigate('/')
+      }, 3000)
+    })
+    .catch((error)=> {
+      const errorCode = error.code
+
+      toast.error(errorCode)
+    })
   };
 
   const handleShow = () => {
@@ -52,8 +81,6 @@ const Registration = () => {
   const handleShowConfirm = () => {
     setShowPasswordConfirm(!showPasswordConfirm)
   }
-
-  console.log(showPasswordConfirm);
   
 
   return (
@@ -131,7 +158,7 @@ const Registration = () => {
                       setConfirmPasswordError(false);
                     }}
                     sx={{ width: "90%" }}
-                    type="password"
+                    type={showPasswordConfirm ? 'password' : 'text'}
                     label="Confirm Password"
                     error={confirmPasswordError}
                     helperText={
@@ -153,7 +180,8 @@ const Registration = () => {
                   )}
                 </div>
               </div>
-
+              
+              {/* POPUP NOTIFICATION */}
               <ToastContainer position="top-left" />
 
               <div className="w-full">
